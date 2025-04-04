@@ -20,7 +20,4 @@ fun isIPv4Valid(ip: Any?): Boolean {
 
     return true
 }
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/mina0maher/the-chance.git
-git push -u origin main
+

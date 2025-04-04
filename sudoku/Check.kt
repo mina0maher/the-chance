@@ -1,5 +1,35 @@
 fun main() {
+    //region valid 4x4
+    validateSudoku(
+        name = "when 4x4 Sudoku is completely valid return true",
+        result = isSudokuValid(
+            listOf(
+                listOf('1', '-', '-', '-'),
+                listOf('-', '2', '-', '-'),
+                listOf('-', '-', '3', '-'),
+                listOf('-', '-', '-', '4')
+            )
+        ),
+        correctResult = true
+    )
+    //endregion
 
+    //region not valid 4x4
+    validateSudoku(
+        name = "when 4x4 Sudoku has duplicate in 2x2 subgrid return false",
+        result = isSudokuValid(
+            listOf(
+                listOf('1', '-', '-', '-'),
+                listOf('-', '5', '-', '-'), // invalid number
+                listOf('-', '-', '3', '-'),
+                listOf('-', '-', '-', '4')
+            )
+        ),
+        correctResult = false
+    )
+    //endregion
+
+    //region valid 9x9
     validateSudoku(
         name = "when Sudoku is completely filled with valid numbers return true",
         result = isSudokuValid(
@@ -53,7 +83,9 @@ fun main() {
         ),
         correctResult = true
     )
+    //end region
 
+    //region not valid 9x9
     validateSudoku(
         name = "when Sudoku has duplicate in row return false",
         result = isSudokuValid(
@@ -209,6 +241,61 @@ fun main() {
         ),
         correctResult = false
     )
+    //end region
+    //region valid 16x16
+    validateSudoku(
+        name = "when 16x16 Sudoku is completely valid return true",
+        result = isSudokuValid(
+            listOf(
+                listOf('1','2','3','4','-','-','-','-','-','-','-','-','-','-','-','-'),
+                listOf('3','4','1','2','-','-','-','-','-','-','-','-','-','-','-','-'),
+                listOf('2','1','4','3','-','-','-','-','-','-','-','-','-','-','-','-'),
+                listOf('4','3','2','1','-','-','-','-','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','5','6','7','8','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','7','8','5','6','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','6','5','8','7','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','8','7','6','5','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','9','A','B','C','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','B','C','9','A','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','A','9','C','B','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','C','B','A','9','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','D','E','F','G'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','F','G','D','E'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','E','D','G','F'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','G','F','E','D')
+            )
+        ),
+        correctResult = true
+    )
+    //endregion
+
+    //region not valid 16x16
+    validateSudoku(
+        name = "when 16x16 Sudoku has invalid character return false",
+        result = isSudokuValid(
+            listOf(
+                listOf('1','2','3','4','-','-','-','-','-','-','-','-','-','-','-','-'),
+                listOf('3','4','1','2','-','-','-','-','-','-','-','-','-','-','-','-'),
+                listOf('2','1','4','3','-','-','-','-','-','-','-','-','-','-','-','-'),
+                listOf('4','3','2','1','-','-','-','-','X','-','-','-','-','-','-','-'), // Invalid 'X'
+                listOf('-','-','-','-','5','6','7','8','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','7','8','5','6','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','6','5','8','7','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','8','7','6','5','-','-','-','-','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','9','A','B','C','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','B','C','9','A','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','A','9','C','B','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','C','B','A','9','-','-','-','-'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','D','E','F','G'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','F','G','D','E'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','E','D','G','F'),
+                listOf('-','-','-','-','-','-','-','-','-','-','-','-','G','F','E','D')
+            )
+        ),
+        correctResult = false
+    )
+    //endregion
+
 
 }
 
