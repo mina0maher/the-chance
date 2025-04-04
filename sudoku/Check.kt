@@ -16,7 +16,8 @@ fun main() {
 
     //region not valid 4x4
     validateSudoku(
-        name = "when 4x4 Sudoku has duplicate in 2x2 subgrid return false",
+        //review
+        name = "when 4x4 Sudoku has invalid number return false",
         result = isSudokuValid(
             listOf(
                 listOf('1', '-', '-', '-'),
@@ -171,7 +172,7 @@ fun main() {
     )
 
     validateSudoku(
-        name = "when Sudoku contains character values return false",
+        name = "when Sudoku contains not valid values return false",
         result = isSudokuValid(
             listOf(
                 listOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
@@ -187,6 +188,24 @@ fun main() {
         ),
         correctResult = false
     )
+    validateSudoku(
+        name = "when Sudoku contains special character values return false",
+        result = isSudokuValid(
+            listOf(
+                listOf('5', '3', '-', '-', '7', '-', '-', '-', '-'),
+                listOf('6', '-', '-', '1', '9', '5', '-', '-', '-'),
+                listOf('-', '9', '8', '-', '-', '-', '-', '6', '-'),
+                listOf('8', '-', '-', '-', '6', '-', '-', '-', '&'), // & here
+                listOf('4', '-', '-', '8', '-', '3', '-', '-', '1'),
+                listOf('7', '-', '-', '-', '2', '-', '-', '-', '6'),
+                listOf('-', '6', '-', '-', '-', '-', '2', '8', '-'),
+                listOf('-', '-', '-', '4', '1', '9', '-', '-', '5'),
+                listOf('-', '-', '-', '-', '8', '-', '-', '7', '9')
+            )
+        ),
+        correctResult = false
+    )
+
 
 
 
